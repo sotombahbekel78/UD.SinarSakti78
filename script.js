@@ -24,7 +24,7 @@ const products = [
     bahan: "Kotoran kambing etawa",
     kemasan: "Karung beras ±50 kg",
     harga: "Hubungi No. WhatsApp",
-    foto: "images/UD-Original.jpg",
+    foto: "UD-Original.jpg",
     keterangan:
       "Pupuk kohe kambing etawa dalam kondisi original, langsung dari kandang.",
     stok: "Tersedia",
@@ -41,7 +41,7 @@ const products = [
     bahan: "Kotoran kambing etawa",
     kemasan: "Karung beras ±25 kg",
     harga: "Hubungi No. WhatsApp",
-    foto: "images/UD-Fermentasi.jpg",
+    foto: "UD-Fermentasi.jpg",
     keterangan:
       "Pupuk kohe kambing etawa yang telah melalui proses penggilingan dan fermentasi.",
     stok: "Tersedia",
