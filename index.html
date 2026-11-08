@@ -7,391 +7,500 @@
 
   <title>UD. SINAR SAKTI 78 | Pupuk Organik Kambing Etawa</title>
 
-  <meta name="description" content="UD. SINAR SAKTI 78 menyediakan pupuk organik kambing etawa fermentasi dan original langsung dari kandang. Melayani pemesanan dan pengiriman.">
+  <meta name="description" content="UD. SINAR SAKTI 78 menyediakan pupuk organik kambing etawa fermentasi dan original langsung dari kandang. Pesan dan konsultasi melalui WhatsApp.">
+
+  <meta name="keywords" content="pupuk organik, pupuk kambing etawa, pupuk kohe kambing, pupuk fermentasi, pupuk kandang">
+
   <meta name="theme-color" content="#174B32">
 
   <link rel="icon" href="LogoUD.jpg" type="image/jpeg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-  <div class="container nav-container">
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-container">
 
-    <a href="#home" class="brand">
-      <img src="LogoUD.jpg" alt="Logo UD Sinar Sakti 78">
-      <div>
-        <strong>UD. SINAR SAKTI 78</strong>
-        <small>PUPUK ORGANIK ETAWA</small>
+      <a href="#home" class="brand">
+        <img src="LogoUD.jpg" alt="Logo UD Sinar Sakti 78">
+        <div class="brand-text">
+          <strong>UD. SINAR SAKTI 78</strong>
+          <span>Pupuk Organik Kambing Etawa</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Buka menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links">
+        <a href="#home">Beranda</a>
+        <a href="#produk">Produk</a>
+        <a href="#keunggulan">Keunggulan</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#testimoni">Testimoni</a>
+        <a href="#tentang">Tentang Kami</a>
+        <a href="#kontak" class="nav-contact">Hubungi Kami</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-container">
+
+        <div class="hero-content">
+
+          <span class="hero-label">
+            PUPUK ORGANIK KAMBING ETAWA
+          </span>
+
+          <h1>
+            Kembali ke Alam,<br>
+            <span>Tumbuhkan Kehidupan.</span>
+          </h1>
+
+          <p>
+            Pilihan pupuk organik berbahan dasar kotoran kambing etawa.
+            Tersedia dalam pilihan fermentasi dan original langsung dari kandang.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#produk" class="btn-primary">
+              Lihat Produk
+            </a>
+
+            <button onclick="orderGeneral()" class="btn-outline">
+              Pesan Sekarang
+            </button>
+          </div>
+
+          <div class="hero-location">
+            <span></span>
+            <p>Kaligesing, Purworejo, Jawa Tengah</p>
+          </div>
+
+        </div>
+
       </div>
-    </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">
-      ☰
-    </button>
+      <div class="hero-bottom">
+        <span>ORGANIC FERTILIZER</span>
+        <span>UD. SINAR SAKTI 78</span>
+      </div>
 
-    <nav class="nav-menu" id="navMenu">
-      <a href="#home">Beranda</a>
-      <a href="#produk">Produk</a>
-      <a href="#tentang">Tentang</a>
-      <a href="#galeri">Galeri</a>
-      <a href="#testimoni">Testimoni</a>
-      <a href="#kontak">Kontak</a>
-      <a href="#" class="nav-button" onclick="orderGeneral();return false;">WhatsApp</a>
-    </nav>
-
-  </div>
-</header>
+    </section>
 
 
-<main>
+    <!-- INTRO -->
+    <section class="intro-section">
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="container hero-container">
+      <div class="container intro-grid">
 
-    <div class="hero-content">
+        <div class="intro-label">
+          <span>01 / TENTANG PRODUK</span>
+        </div>
 
-      <span class="hero-label">PRODUK PUPUK ORGANIK KAMBING ETAWA</span>
+        <div class="intro-content">
+          <h2>
+            Dari peternakan untuk kebutuhan pertanian yang lebih alami.
+          </h2>
 
-      <h1>
-        Pilihan Pupuk Organik untuk Pertanian yang Lebih Berkualitas.
-      </h1>
+          <p>
+            UD. SINAR SAKTI 78 menghadirkan pupuk organik berbahan dasar
+            kohe kambing etawa dengan pilihan produk fermentasi maupun
+            original. Kami melayani kebutuhan pupuk untuk berbagai skala
+            penggunaan.
+          </p>
+        </div>
 
-      <p>
-        Tersedia pupuk etawa fermentasi dan pupuk original langsung
-        dari kandang. Pilihan untuk kebutuhan pertanian, perkebunan,
-        dan budidaya tanaman Anda.
-      </p>
+      </div>
 
-      <div class="hero-actions">
-        <a href="#produk" class="btn btn-primary">Lihat Produk</a>
-        <a href="#" class="btn btn-outline" onclick="orderGeneral();return false;">
-          Pesan via WhatsApp
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="products-section section-padding" id="produk">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-label">02 / PRODUK KAMI</span>
+            <h2>Pilihan Pupuk Organik</h2>
+          </div>
+
+          <p>
+            Pilih produk sesuai kebutuhan tanaman dan metode penggunaan Anda.
+          </p>
+
+        </div>
+
+        <div id="product-list" class="product-list"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ADVANTAGES -->
+    <section class="advantages-section section-padding" id="keunggulan">
+
+      <div class="container">
+
+        <div class="section-heading light-heading">
+
+          <div>
+            <span class="section-label">03 / KEUNGGULAN</span>
+            <h2>Mengutamakan Kualitas Produk</h2>
+          </div>
+
+          <p>
+            Kami berfokus menyediakan produk pupuk organik kambing etawa
+            dan pelayanan pemesanan yang mudah.
+          </p>
+
+        </div>
+
+        <div class="advantages-grid">
+
+          <article class="advantage-card">
+            <span class="advantage-number">01</span>
+            <div class="advantage-icon">01</div>
+            <h3>Bahan Organik</h3>
+            <p>
+              Berbahan dasar kotoran kambing etawa sebagai bahan baku pupuk.
+            </p>
+          </article>
+
+          <article class="advantage-card">
+            <span class="advantage-number">02</span>
+            <div class="advantage-icon">02</div>
+            <h3>Pilihan Produk</h3>
+            <p>
+              Tersedia pilihan pupuk fermentasi dan pupuk original.
+            </p>
+          </article>
+
+          <article class="advantage-card">
+            <span class="advantage-number">03</span>
+            <div class="advantage-icon">03</div>
+            <h3>Informasi Transparan</h3>
+            <p>
+              Informasi produk, kemasan, harga, dan stok dapat dikonfirmasi
+              langsung kepada admin.
+            </p>
+          </article>
+
+          <article class="advantage-card">
+            <span class="advantage-number">04</span>
+            <div class="advantage-icon">04</div>
+            <h3>Layanan Pengiriman</h3>
+            <p>
+              Tersedia layanan pengantaran produk hingga lokasi pelanggan
+              sesuai kesepakatan.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- GALLERY -->
+    <section class="gallery-section section-padding" id="galeri">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-label">04 / GALERI</span>
+            <h2>Aktivitas Produksi Kami</h2>
+          </div>
+
+          <p>
+            Dokumentasi peternakan, proses produksi, pengemasan,
+            dan pengiriman produk.
+          </p>
+
+        </div>
+
+        <div id="gallery-list" class="gallery-grid"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial-section section-padding" id="testimoni">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-label">05 / TESTIMONI</span>
+            <h2>Pengalaman Pelanggan</h2>
+          </div>
+
+          <p>
+            Dokumentasi ulasan dan pengalaman pelanggan UD. SINAR SAKTI 78.
+          </p>
+
+        </div>
+
+        <div id="testimonial-list" class="testimonial-grid"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about-section section-padding" id="tentang">
+
+      <div class="container about-grid">
+
+        <div class="about-image">
+          <img src="images/kandang.jpg" alt="Peternakan kambing etawa" loading="lazy">
+
+          <div class="about-image-caption">
+            <span>UD. SINAR SAKTI 78</span>
+            <strong>Organic Fertilizer</strong>
+          </div>
+        </div>
+
+        <div class="about-content">
+
+          <span class="section-label">06 / TENTANG KAMI</span>
+
+          <h2>
+            Mengenal UD. SINAR SAKTI 78
+          </h2>
+
+          <p>
+            UD. SINAR SAKTI 78 merupakan usaha yang menyediakan pupuk
+            organik berbahan dasar kotoran kambing etawa.
+          </p>
+
+          <p>
+            Kami menyediakan pilihan pupuk fermentasi dan original
+            langsung dari kandang untuk memenuhi kebutuhan pelanggan.
+          </p>
+
+          <p>
+            Berlokasi di Kaligesing, Purworejo, Jawa Tengah, kami juga
+            melayani konsultasi produk dan pemesanan melalui WhatsApp.
+          </p>
+
+          <a href="#kontak" class="btn-primary">
+            Hubungi Kami
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ORDER PROCESS -->
+    <section class="process-section section-padding">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-label">07 / CARA PEMESANAN</span>
+            <h2>Mudah untuk Memesan</h2>
+          </div>
+
+          <p>
+            Hubungi kami melalui WhatsApp untuk mendapatkan informasi
+            produk dan melakukan pemesanan.
+          </p>
+
+        </div>
+
+        <div class="process-grid">
+
+          <div class="process-card">
+            <span>01</span>
+            <h3>Pilih Produk</h3>
+            <p>Pilih pupuk organik sesuai kebutuhan Anda.</p>
+          </div>
+
+          <div class="process-card">
+            <span>02</span>
+            <h3>Hubungi Admin</h3>
+            <p>Kirim pesan melalui WhatsApp untuk konsultasi dan informasi harga.</p>
+          </div>
+
+          <div class="process-card">
+            <span>03</span>
+            <h3>Konfirmasi Pesanan</h3>
+            <p>Konfirmasi jumlah, harga, dan lokasi pengiriman.</p>
+          </div>
+
+          <div class="process-card">
+            <span>04</span>
+            <h3>Pengiriman</h3>
+            <p>Produk dipersiapkan dan dikirim sesuai kesepakatan.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT CTA -->
+    <section class="contact-section" id="kontak">
+
+      <div class="container contact-container">
+
+        <div>
+          <span class="section-label">08 / HUBUNGI KAMI</span>
+
+          <h2>
+            Butuh pupuk organik kambing etawa?
+          </h2>
+
+          <p>
+            Konsultasikan kebutuhan pupuk Anda bersama UD. SINAR SAKTI 78.
+          </p>
+
+        </div>
+
+        <div class="contact-actions">
+
+          <button onclick="orderGeneral()" class="btn-light">
+            <span>Hubungi via WhatsApp</span>
+            <span>↗</span>
+          </button>
+
+          <p>0852-9266-1522</p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+
+        <a href="#home" class="brand">
+          <img src="LogoUD.jpg" alt="Logo UD Sinar Sakti 78">
+
+          <div class="brand-text">
+            <strong>UD. SINAR SAKTI 78</strong>
+            <span>Pupuk Organik Kambing Etawa</span>
+          </div>
+        </a>
+
+        <p>
+          Menyediakan pupuk organik kambing etawa fermentasi dan original.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+        <h4>Navigasi</h4>
+        <a href="#home">Beranda</a>
+        <a href="#produk">Produk</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#tentang">Tentang Kami</a>
+      </div>
+
+
+      <div class="footer-links">
+        <h4>Kontak</h4>
+        <p>Kaligesing, Purworejo</p>
+        <p>Jawa Tengah, Indonesia</p>
+        <a href="https://wa.me/6285292661522" target="_blank" rel="noopener">
+          0852-9266-1522
         </a>
       </div>
 
-      <div class="hero-highlights">
-        <span>✓ Produk langsung dari peternakan</span>
-        <span>✓ Dua pilihan pupuk organik</span>
-        <span>✓ Melayani pemesanan dan pengiriman</span>
+    </div>
+
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>
+          © <span id="current-year"></span> UD. SINAR SAKTI 78.
+          All Rights Reserved.
+        </p>
       </div>
-
     </div>
 
-  </div>
-</section>
-
-
-<!-- INTRO -->
-<section class="intro section">
-  <div class="container intro-grid">
-
-    <div>
-      <span class="eyebrow">UD. SINAR SAKTI 78</span>
-      <h2>Menyediakan Pupuk Organik dari Sumbernya.</h2>
-    </div>
-
-    <p>
-      Kami menyediakan pupuk organik berbahan dasar kotoran kambing
-      etawa dengan dua pilihan produk, yaitu pupuk fermentasi dan
-      pupuk original langsung dari kandang. Kami mengutamakan
-      informasi produk yang jelas serta pelayanan pemesanan yang praktis.
-    </p>
-
-  </div>
-</section>
-
-
-<!-- PRODUK -->
-<section class="section products" id="produk">
-  <div class="container">
-
-    <div class="section-heading">
-      <span class="eyebrow">KATALOG PRODUK</span>
-      <h2>Produk Kami</h2>
-      <p>
-        Pilih produk sesuai kebutuhan pertanian dan perkebunan Anda.
-      </p>
-    </div>
-
-    <div id="product-list"></div>
-
-  </div>
-</section>
-
-
-<!-- KEUNGGULAN -->
-<section class="section advantages">
-  <div class="container">
-
-    <div class="section-heading">
-      <span class="eyebrow">KEUNGGULAN KAMI</span>
-      <h2>Mengapa Memilih Kami?</h2>
-      <p>Informasi produk dan layanan yang mengutamakan transparansi.</p>
-    </div>
-
-    <div class="advantage-grid">
-
-      <article class="advantage-card">
-        <div class="advantage-icon">♧</div>
-        <h3>Sumber Produk Jelas</h3>
-        <p>Produk berasal dari peternakan kambing etawa.</p>
-      </article>
-
-      <article class="advantage-card">
-        <div class="advantage-icon">◈</div>
-        <h3>Dua Pilihan Produk</h3>
-        <p>Tersedia pupuk fermentasi dan original.</p>
-      </article>
-
-      <article class="advantage-card">
-        <div class="advantage-icon">⌂</div>
-        <h3>Proses Transparan</h3>
-        <p>Dokumentasi kegiatan produksi ditampilkan melalui galeri.</p>
-      </article>
-
-      <article class="advantage-card">
-        <div class="advantage-icon">↗</div>
-        <h3>Layanan Pengiriman</h3>
-        <p>Melayani pemesanan dan pengiriman sesuai jangkauan layanan.</p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- GALERI -->
-<section class="section gallery" id="galeri">
-  <div class="container">
-
-    <div class="section-heading">
-      <span class="eyebrow">DOKUMENTASI KAMI</span>
-      <h2>Melihat Langsung Proses Produksi</h2>
-      <p>
-        Dokumentasi peternakan, proses produksi, pengemasan,
-        dan pengiriman produk.
-      </p>
-    </div>
-
-    <div id="gallery-list" class="gallery-grid"></div>
-
-    <p class="gallery-note">
-      Klik foto untuk melihat dokumentasi dalam ukuran lebih besar.
-    </p>
-
-  </div>
-</section>
-
-
-<!-- TESTIMONI -->
-<section class="section testimonials" id="testimoni">
-  <div class="container">
-
-    <div class="section-heading">
-      <span class="eyebrow">PENGALAMAN PELANGGAN</span>
-      <h2>Apa Kata Pelanggan Kami?</h2>
-      <p>
-        Dokumentasi pengalaman, pembelian, dan pengiriman kepada pelanggan.
-      </p>
-    </div>
-
-    <div id="testimonial-list" class="testimonial-grid"></div>
-
-  </div>
-</section>
-
-
-<!-- PROSES PEMESANAN -->
-<section class="section process">
-  <div class="container">
-
-    <div class="section-heading">
-      <span class="eyebrow">CARA PEMESANAN</span>
-      <h2>Mudah dan Praktis</h2>
-      <p>Proses pemesanan pupuk melalui WhatsApp.</p>
-    </div>
-
-    <div class="process-grid">
-
-      <article class="process-card">
-        <span>01</span>
-        <h3>Pilih Produk</h3>
-        <p>Tentukan pupuk fermentasi atau original.</p>
-      </article>
-
-      <article class="process-card">
-        <span>02</span>
-        <h3>Hubungi Kami</h3>
-        <p>Hubungi admin melalui WhatsApp.</p>
-      </article>
-
-      <article class="process-card">
-        <span>03</span>
-        <h3>Konfirmasi Pesanan</h3>
-        <p>Diskusikan jumlah, harga, dan alamat pengiriman.</p>
-      </article>
-
-      <article class="process-card">
-        <span>04</span>
-        <h3>Pengiriman</h3>
-        <p>Pesanan dipersiapkan sesuai kesepakatan.</p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- TENTANG KAMI -->
-<section class="section about" id="tentang">
-  <div class="container about-grid">
-
-    <div class="about-logo">
-      <img src="LogoUD.jpg" alt="Logo resmi UD Sinar Sakti 78">
-    </div>
-
-    <div class="about-content">
-
-      <span class="eyebrow">TENTANG KAMI</span>
-
-      <h2>Mengenal UD. SINAR SAKTI 78</h2>
-
-      <p>
-        UD. SINAR SAKTI 78 merupakan usaha yang bergerak dalam
-        penyediaan pupuk organik berbahan dasar kotoran kambing etawa.
-        Kami menyediakan dua pilihan produk, yaitu pupuk etawa
-        fermentasi dan pupuk original langsung dari kandang.
-      </p>
-
-      <p>
-        Melalui proses produksi dan pelayanan pemesanan yang
-        transparan, kami berupaya menyediakan produk sesuai
-        kebutuhan pelanggan.
-      </p>
-
-      <div class="about-location">
-        <strong>LOKASI USAHA</strong>
-        <p>Kaligesing, Purworejo, Jawa Tengah.</p>
-      </div>
-
-      <a href="#" class="btn btn-primary" onclick="orderGeneral();return false;">
-        Hubungi Kami
-      </a>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- KONTAK -->
-<section class="contact-section section" id="kontak">
-  <div class="container contact-content">
-
-    <span class="eyebrow">HUBUNGI KAMI</span>
-
-    <h2>Siap Memesan Pupuk Organik?</h2>
-
-    <p>
-      Hubungi kami untuk informasi produk, harga, ketersediaan stok,
-      ukuran kemasan, dan pengiriman.
-    </p>
-
-    <a href="#" class="btn btn-light" onclick="orderGeneral();return false;">
-      Konsultasi & Pesan Sekarang →
-    </a>
-
-    <div class="contact-info">
-
-      <div>
-        <small>WHATSAPP</small>
-        <strong>0852-9266-1522</strong>
-      </div>
-
-      <div>
-        <small>LOKASI</small>
-        <strong>Kaligesing, Purworejo</strong>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-</main>
-
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-
-    <div class="footer-main">
-
-      <div class="footer-brand">
-        <img src="LogoUD.jpg" alt="Logo UD Sinar Sakti 78">
-
-        <div>
-          <strong>UD. SINAR SAKTI 78</strong>
-          <p>
-            Solusi Pupuk Organik Berkualitas untuk
-            Pertanian Berkelanjutan.
-          </p>
-        </div>
-      </div>
-
-      <div class="footer-links">
-        <a href="#home">Beranda</a>
-        <a href="#produk">Produk</a>
-        <a href="#tentang">Tentang Kami</a>
-        <a href="#galeri">Galeri</a>
-        <a href="#testimoni">Testimoni</a>
-        <a href="#kontak">Kontak</a>
-      </div>
-
-    </div>
-
-    <div class="copyright">
-      © 2026 UD. SINAR SAKTI 78. Hak Cipta Dilindungi.
-    </div>
-
-  </div>
-</footer>
-
-
-<!-- FLOATING WHATSAPP -->
-<a href="#" class="floating-wa"
-   onclick="orderGeneral();return false;"
-   aria-label="Hubungi WhatsApp">
-
-  <span>WhatsApp</span>
-  <strong>↗</strong>
-
-</a>
-
-
-<!-- LIGHTBOX GALERI -->
-<div id="lightbox" class="lightbox" aria-hidden="true">
-
-  <button id="lightbox-close" class="lightbox-close" aria-label="Tutup">
-    ×
+  </footer>
+
+
+  <!-- FLOATING WHATSAPP -->
+  <button
+    class="floating-whatsapp"
+    onclick="orderGeneral()"
+    aria-label="Hubungi WhatsApp"
+  >
+    <span>WA</span>
   </button>
 
-  <img id="lightbox-image" src="" alt="Dokumentasi produksi">
 
-  <p id="lightbox-caption"></p>
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
 
-</div>
+    <button
+      id="lightbox-close"
+      class="lightbox-close"
+      type="button"
+      aria-label="Tutup galeri"
+    >
+      &times;
+    </button>
+
+    <div class="lightbox-content">
+      <img id="lightbox-image" src="" alt="">
+      <p id="lightbox-caption"></p>
+    </div>
+
+  </div>
 
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
