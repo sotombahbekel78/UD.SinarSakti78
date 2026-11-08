@@ -19,10 +19,10 @@ const products = [
     nama: "Pupuk Kohe Kambing Etawa Organik",
     kategori: "PUPUK ORGANIK",
     deskripsi:
-      "Pupuk organik berbahan dasar kotoran kambing etawa (kohe) dalam kondisi original. Dikemas menggunakan karung beras dengan ukuran kurang lebih 50 kg.",
+      "Pupuk organik berbahan dasar kohe kambing etawa (kohe) dalam kondisi original. Dikemas menggunakan karung beras ukuran 50 kg. Angka tersebut menunjukkan ukuran karung, bukan berat isi kohe.",
     jenis: "Pupuk organik",
-    bahan: "Kotoran kambing etawa",
-    kemasan: "Karung beras ±50 kg",
+    bahan: "Kohe kambing etawa",
+    kemasan: "Karung beras ukuran 50 kg (ukuran karung)",
     harga: "Hubungi No. WhatsApp",
     foto: "UD-Original.jpg",
     keterangan:
@@ -35,10 +35,10 @@ const products = [
     nama: "Pupuk Kohe Giling Fermentasi",
     kategori: "PUPUK ORGANIK",
     deskripsi:
-      "Pupuk organik berbahan dasar kotoran kambing etawa yang melalui proses penggilingan dan fermentasi. Dikemas menggunakan karung beras dengan ukuran kurang lebih 25 kg.",
+      "Pupuk organik berbahan dasar kohe kambing etawa yang melalui proses penggilingan dan fermentasi. Dikemas menggunakan karung beras ukuran 25 kg. Angka tersebut menunjukkan ukuran karung, bukan berat isi kohe.",
     jenis: "Pupuk organik",
-    bahan: "Kotoran kambing etawa",
-    kemasan: "Karung beras ±25 kg",
+    bahan: "Kohe kambing etawa",
+    kemasan: "Karung beras ukuran 25 kg (ukuran karung)",
     harga: "Hubungi No. WhatsApp",
     foto: "UD-Fermentasi.jpg",
     keterangan:
@@ -51,18 +51,6 @@ const products = [
 
 /* =================================
    DATA AKTIVITAS TIKTOK
-
-   Tambahkan link video TikTok di sini.
-
-   Contoh:
-   {
-     judul: "Proses Produksi Pupuk",
-     kategori: "Produksi",
-     deskripsi: "Dokumentasi kegiatan produksi.",
-     link: "https://www.tiktok.com/@ud.sinarsakti78/video/ID_VIDEO"
-   }
-
-   Gunakan link video lengkap yang mengandung /video/ID.
 ================================= */
 
 const activities = [
@@ -133,7 +121,6 @@ function renderProducts() {
 
   container.innerHTML = products.map(product => `
     <article class="fertilizer-card">
-
       <div class="fertilizer-image">
         <img
           src="${product.foto}"
@@ -143,68 +130,48 @@ function renderProducts() {
       </div>
 
       <div class="fertilizer-content">
-
-        <span class="fertilizer-category">
-          ${product.kategori}
-        </span>
-
+        <span class="fertilizer-category">${product.kategori}</span>
         <h3>${product.nama}</h3>
-
         <p>${product.deskripsi}</p>
 
         <div class="fertilizer-details">
-
           <div class="fertilizer-detail">
             <span>Jenis Produk</span>
             <strong>${product.jenis}</strong>
           </div>
-
           <div class="fertilizer-detail">
             <span>Bahan</span>
             <strong>${product.bahan}</strong>
           </div>
-
           <div class="fertilizer-detail">
             <span>Kemasan</span>
             <strong>${product.kemasan}</strong>
           </div>
-
           <div class="fertilizer-detail">
             <span>Ketersediaan</span>
             <strong>${product.stok}</strong>
           </div>
-
           <div class="fertilizer-detail">
             <span>Harga</span>
             <strong>${product.harga}</strong>
           </div>
-
           <div class="fertilizer-detail">
             <span>Distribusi</span>
             <strong>${product.distribusi}</strong>
           </div>
-
         </div>
 
-        <p class="fertilizer-note">
-          ${product.keterangan}
-        </p>
+        <p class="fertilizer-note">${product.keterangan}</p>
 
         <div class="fertilizer-actions">
-
-          <span class="fertilizer-price">
-            ${product.harga}
-          </span>
-
+          <span class="fertilizer-price">${product.harga}</span>
           <button
             type="button"
             class="btn btn-primary"
             onclick="orderProduct(${product.id})">
             Tanya Produk via WhatsApp
           </button>
-
         </div>
-
       </div>
     </article>
   `).join("");
@@ -219,7 +186,6 @@ function getTikTokVideoId(url) {
   try {
     const parsedUrl = new URL(url);
     const match = parsedUrl.pathname.match(/\/video\/(\d+)/);
-
     return match ? match[1] : null;
   } catch (error) {
     return null;
@@ -249,9 +215,7 @@ function renderActivities() {
   }
 
   container.innerHTML = activities.map(item => {
-
     const videoId = getTikTokVideoId(item.link);
-
     let videoElement = "";
 
     if (videoId) {
@@ -282,19 +246,11 @@ function renderActivities() {
 
     return `
       <article class="activity-card">
-
         ${videoElement}
-
         <div class="activity-content">
-
-          <span class="activity-category">
-            ${item.kategori}
-          </span>
-
+          <span class="activity-category">${item.kategori}</span>
           <h3>${item.judul}</h3>
-
           <p>${item.deskripsi || ""}</p>
-
           <a
             href="${item.link}"
             target="_blank"
@@ -302,12 +258,9 @@ function renderActivities() {
             class="activity-link">
             Tonton di TikTok ↗
           </a>
-
         </div>
-
       </article>
     `;
-
   }).join("");
 }
 
