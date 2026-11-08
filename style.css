@@ -619,8 +619,8 @@ button {
 
 .activity-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .activity-card {
@@ -639,7 +639,8 @@ button {
 .activity-video {
   width: 100%;
   aspect-ratio: 9 / 16;
-  min-height: 280px;
+  max-height: 320px;
+  min-height: 0;
   overflow: hidden;
   background: #111;
 }
@@ -653,7 +654,8 @@ button {
 
 .activity-link-preview {
   display: flex;
-  min-height: 280px;
+  min-height: 0;
+  max-height: 320px;
   aspect-ratio: 9 / 16;
   flex-direction: column;
   align-items: center;
@@ -1076,7 +1078,7 @@ button {
   }
 
   .activity-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .footer-main {
@@ -1246,13 +1248,15 @@ button {
   }
 
   .activity-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .activity-video,
   .activity-link-preview {
-    max-width: 420px;
+    width: 100%;
+    max-width: none;
+    max-height: 240px;
     margin: 0 auto;
   }
 
