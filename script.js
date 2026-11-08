@@ -1,123 +1,88 @@
 
-/* =================================================
-   UD. SINAR SAKTI 78
-   FINAL WEBSITE JAVASCRIPT
-================================================= */
+// =====================================================
+// UD. SINAR SAKTI 78
+// WEBSITE JAVASCRIPT
+// =====================================================
 
 
-/* =================================================
-   1. KONFIGURASI WEBSITE
-   GANTI NOMOR WHATSAPP DI BAGIAN INI
-================================================= */
+// 1. KONFIGURASI WEBSITE
 
 const CONFIG = {
-
   namaUsaha: "UD. SINAR SAKTI 78",
-
   whatsapp: "6285292661522",
-
   lokasi: "Kaligesing, Purworejo, Jawa Tengah"
-
 };
 
 
-/* =================================================
-   2. DATA PRODUK
-   TAMBAH / EDIT PRODUK DI BAGIAN INI
-================================================= */
+// 2. DATA PRODUK
 
 const products = [
 
   {
     id: 1,
-
-    nama: "Pupuk Etawa Fermentasi",
-
-    kategori: "PUPUK FERMENTASI",
+    nama: "Pupuk Kohe Kambing Etawa Organik",
+    kategori: "PUPUK ORGANIK",
 
     deskripsi:
-      "Pupuk organik berbahan dasar kotoran kambing etawa yang melalui proses fermentasi. Cocok untuk kebutuhan pertanian, perkebunan, dan budidaya tanaman.",
+      "Pupuk organik berbahan dasar kotoran kambing etawa (kohe) dalam kondisi original. Dikemas menggunakan karung beras dengan ukuran kurang lebih 50 kg.",
 
-    jenis: "Organik fermentasi",
-
+    jenis: "Pupuk organik",
     bahan: "Kotoran kambing etawa",
-
-    kemasan: "Dapat disesuaikan",
-
-    harga: "Hubungi kami",
-
-    foto: "images/pupuk-fermentasi.jpg",
-
-    keterangan:
-      "Informasi harga, ukuran kemasan, dan ketersediaan produk dapat dikonfirmasi melalui WhatsApp."
-
-  },
-
-  {
-    id: 2,
-
-    nama: "Pupuk Original Langsung dari Kandang",
-
-    kategori: "PUPUK ORIGINAL",
-
-    deskripsi:
-      "Pupuk organik kambing etawa dalam kondisi original, berasal langsung dari kandang tanpa melalui proses fermentasi.",
-
-    jenis: "Organik original",
-
-    bahan: "Kotoran kambing etawa",
-
-    kemasan: "Dapat disesuaikan",
-
-    harga: "Hubungi kami",
+    kemasan: "Karung beras ±50 kg",
+    harga: "Hubungi No. WhatsApp",
 
     foto: "images/pupuk-original.jpg",
 
     keterangan:
-      "Informasi harga, ukuran kemasan, dan ketersediaan produk dapat dikonfirmasi melalui WhatsApp."
+      "Pupuk kohe kambing etawa dalam kondisi original, langsung dari kandang.",
 
+    stok: "Tersedia",
+    distribusi: "Khusus Pulau Jawa, antar sampai lokasi"
+  },
+
+  {
+    id: 2,
+    nama: "Pupuk Kohe Giling Fermentasi",
+    kategori: "PUPUK ORGANIK",
+
+    deskripsi:
+      "Pupuk organik berbahan dasar kotoran kambing etawa yang melalui proses penggilingan dan fermentasi. Dikemas menggunakan karung beras dengan ukuran kurang lebih 25 kg.",
+
+    jenis: "Pupuk organik",
+    bahan: "Kotoran kambing etawa",
+    kemasan: "Karung beras ±25 kg",
+    harga: "Hubungi No. WhatsApp",
+
+    foto: "images/pupuk-fermentasi.jpg",
+
+    keterangan:
+      "Pupuk kohe kambing etawa yang telah melalui proses penggilingan dan fermentasi.",
+
+    stok: "Tersedia",
+    distribusi: "Khusus Pulau Jawa, antar sampai lokasi"
   }
 
 ];
 
 
-/* =================================================
-   3. DATA TESTIMONI
-   MASUKKAN TESTIMONI ASLI PELANGGAN DI SINI
-
-   KATEGORI:
-   - Review Produk
-   - Testimoni Pembelian
-   - Dokumentasi Pengiriman
-   - Repeat Order
-================================================= */
+// 3. DATA TESTIMONI
+// Tambahkan testimoni pelanggan asli di bagian ini.
 
 const testimonials = [
 
   /*
-  CONTOH FORMAT DATA:
-
   {
-    id: 1,
     nama: "Nama Pelanggan",
-    lokasi: "Purworejo",
-    produk: "Pupuk Etawa Fermentasi",
-    kategori: "Review Produk",
-    ulasan: "Masukkan ulasan asli pelanggan.",
+    lokasi: "Yogyakarta",
+    pesan: "Tuliskan ulasan pelanggan di sini.",
     foto: "images/testimoni-1.jpg"
   }
-
-  Hapus tanda komentar jika ingin memasukkan data.
-  Jangan menggunakan ulasan contoh sebagai testimoni nyata.
   */
 
 ];
 
 
-/* =================================================
-   4. DATA GALERI PRODUKSI
-   TAMBAH FOTO / VIDEO DI BAGIAN INI
-================================================= */
+// 4. DATA GALERI
 
 const gallery = [
 
@@ -132,7 +97,12 @@ const gallery = [
   },
 
   {
-    judul: "Pupuk Etawa Fermentasi",
+    judul: "Pupuk Kohe Original",
+    foto: "images/pupuk-original.jpg"
+  },
+
+  {
+    judul: "Pupuk Kohe Giling Fermentasi",
     foto: "images/pupuk-fermentasi.jpg"
   },
 
@@ -149,46 +119,42 @@ const gallery = [
 ];
 
 
-/* =================================================
-   5. FUNGSI WHATSAPP
-================================================= */
+// 5. FUNGSI WHATSAPP
 
 function sendWhatsApp(message) {
 
   const url =
-    "https://wa.me/" +
-    CONFIG.whatsapp +
-    "?text=" +
-    encodeURIComponent(message);
+    `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
 
-  window.open(url, "_blank", "noopener,noreferrer");
+  window.open(url, "_blank");
 
 }
 
 
+// Pesan umum
+
 function orderGeneral() {
 
   const message =
-`Assalamu'alaikum, saya tertarik dengan produk ${CONFIG.namaUsaha}.
+    `Halo ${CONFIG.namaUsaha}, saya tertarik dengan produk pupuk organik kambing etawa.
 
-Saya ingin mendapatkan informasi mengenai:
+Mohon informasi mengenai:
 
-- Jenis produk
-- Harga produk
-- Ketersediaan stok
-- Ukuran kemasan
-- Pengiriman
+1. Harga pupuk kohe organik kemasan ±50 kg.
+2. Harga pupuk kohe giling fermentasi kemasan ±25 kg.
+3. Ketersediaan stok.
+4. Biaya pengiriman ke lokasi saya.
 
-Mohon informasi lebih lanjut.
+Lokasi pengiriman:
 
-Terima kasih.`
-
-  ;
+Mohon informasi lebih lanjut. Terima kasih.`;
 
   sendWhatsApp(message);
 
 }
 
+
+// Pesan produk tertentu
 
 function orderProduct(id) {
 
@@ -197,24 +163,24 @@ function orderProduct(id) {
   if (!product) return;
 
   const message =
-`Assalamu'alaikum, saya tertarik dengan produk ${CONFIG.namaUsaha}.
+    `Halo ${CONFIG.namaUsaha}, saya ingin memesan produk berikut:
 
-Nama Produk: ${product.nama}
+Nama produk: ${product.nama}
+Jenis produk: ${product.jenis}
+Kemasan: ${product.kemasan}
+Harga: ${product.harga}
+Status stok: ${product.stok}
 
-Jumlah Pesanan:
-Ukuran Kemasan:
-Lokasi Pengiriman:
+Mohon informasi harga dan biaya pengiriman ke lokasi saya.
 
-Mohon informasi harga dan ketersediaan produk.
-
-Terima kasih.`
-
-  ;
+Terima kasih.`;
 
   sendWhatsApp(message);
 
 }
 
+
+// Pertanyaan produk
 
 function detailProduct(id) {
 
@@ -223,30 +189,23 @@ function detailProduct(id) {
   if (!product) return;
 
   const message =
-`Assalamu'alaikum, saya ingin mengetahui informasi lebih lanjut mengenai produk ${CONFIG.namaUsaha}.
+    `Halo ${CONFIG.namaUsaha}, saya ingin bertanya mengenai produk:
 
-Nama Produk: ${product.nama}
+${product.nama}
 
-Mohon informasi mengenai:
+Kemasan: ${product.kemasan}
+Jenis: ${product.jenis}
 
-- Detail produk
-- Harga
-- Ukuran kemasan
-- Ketersediaan stok
-- Pengiriman
+Mohon informasi lebih lanjut mengenai harga, penggunaan, ketersediaan, dan pengiriman.
 
-Terima kasih.`
-
-  ;
+Terima kasih.`;
 
   sendWhatsApp(message);
 
 }
 
 
-/* =================================================
-   6. RENDER PRODUK
-================================================= */
+// 6. RENDER PRODUK
 
 function renderProducts() {
 
@@ -254,27 +213,9 @@ function renderProducts() {
 
   if (!container) return;
 
-  container.innerHTML = "";
+  container.innerHTML = products.map(product => `
 
-  if (products.length === 0) {
-
-    container.innerHTML = `
-      <div class="testimonial-empty">
-        Produk belum tersedia.
-      </div>
-    `;
-
-    return;
-
-  }
-
-  products.forEach(product => {
-
-    const card = document.createElement("article");
-
-    card.className = "fertilizer-card";
-
-    card.innerHTML = `
+    <article class="fertilizer-card">
 
       <div class="fertilizer-image">
 
@@ -288,7 +229,7 @@ function renderProducts() {
 
       <div class="fertilizer-content">
 
-        <span class="fertilizer-label">
+        <span class="fertilizer-category">
           ${product.kategori}
         </span>
 
@@ -306,90 +247,64 @@ function renderProducts() {
           </div>
 
           <div class="fertilizer-detail">
-            <span>Bahan Dasar</span>
+            <span>Bahan</span>
             <strong>${product.bahan}</strong>
           </div>
 
           <div class="fertilizer-detail">
-            <span>Kemasan</span>
+            <span>Ukuran Kemasan</span>
             <strong>${product.kemasan}</strong>
           </div>
 
           <div class="fertilizer-detail">
-            <span>Harga</span>
+            <span>Harga Produk</span>
             <strong>${product.harga}</strong>
+          </div>
+
+          <div class="fertilizer-detail">
+            <span>Ketersediaan Stok</span>
+            <strong>${product.stok}</strong>
+          </div>
+
+          <div class="fertilizer-detail">
+            <span>Pengiriman</span>
+            <strong>${product.distribusi}</strong>
           </div>
 
         </div>
 
-        <div class="fertilizer-note">
+        <p class="fertilizer-note">
           ${product.keterangan}
-        </div>
+        </p>
 
         <div class="fertilizer-actions">
 
           <button
-            type="button"
-            class="btn-product-detail"
-            data-detail="${product.id}"
+            class="btn-primary"
+            onclick="orderProduct(${product.id})"
           >
-            Detail Produk
+            Pesan via WhatsApp
           </button>
 
           <button
-            type="button"
-            class="btn-product-order"
-            data-order="${product.id}"
+            class="btn-secondary"
+            onclick="detailProduct(${product.id})"
           >
-            Pesan via WhatsApp →
+            Tanya Produk
           </button>
 
         </div>
 
       </div>
 
-    `;
+    </article>
 
-    const image = card.querySelector("img");
-
-    image.addEventListener("error", () => {
-      image.alt = "Foto produk belum tersedia";
-    });
-
-    container.appendChild(card);
-
-  });
-
-
-  // Event tombol detail dan pesan
-
-  container.querySelectorAll("[data-order]").forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      orderProduct(Number(button.dataset.order));
-
-    });
-
-  });
-
-
-  container.querySelectorAll("[data-detail]").forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      detailProduct(Number(button.dataset.detail));
-
-    });
-
-  });
+  `).join("");
 
 }
 
 
-/* =================================================
-   7. RENDER TESTIMONI
-================================================= */
+// 7. RENDER TESTIMONI
 
 function renderTestimonials() {
 
@@ -398,94 +313,69 @@ function renderTestimonials() {
 
   if (!container) return;
 
-  container.innerHTML = "";
-
   if (testimonials.length === 0) {
 
     container.innerHTML = `
-
       <div class="testimonial-empty">
-
-        <strong>Dokumentasi pelanggan segera hadir.</strong>
-
-        <p>
-          Testimoni asli pelanggan akan ditampilkan
-          di bagian ini.
-        </p>
-
+        Testimoni pelanggan akan ditampilkan di sini.
       </div>
-
     `;
 
     return;
 
   }
 
-  testimonials.forEach(item => {
+  container.innerHTML = testimonials.map(item => `
 
-    const card = document.createElement("article");
+    <article class="testimonial-card">
 
-    card.className = "testimonial-card";
+      ${
+        item.foto
+          ? `
+            <img
+              src="${item.foto}"
+              alt="Testimoni ${item.nama}"
+              class="testimonial-image"
+              loading="lazy"
+            >
+          `
+          : ""
+      }
 
-    card.innerHTML = `
+      <div class="testimonial-content">
 
-      <img
-        class="testimonial-photo"
-        src="${item.foto}"
-        alt="Dokumentasi pelanggan ${item.nama}"
-        loading="lazy"
-      >
-
-      <div class="testimonial-body">
-
-        <span class="testimonial-category">
-          ${item.kategori}
-        </span>
-
-        <h3>${item.nama}</h3>
-
-        <p class="testimonial-location">
-          ${item.lokasi}
+        <p class="testimonial-message">
+          "${item.pesan}"
         </p>
 
-        <p class="testimonial-review">
-          "${item.ulasan}"
-        </p>
+        <h4>${item.nama}</h4>
 
-        <div class="testimonial-product">
-          Produk: ${item.produk}
-        </div>
+        <span>${item.lokasi || ""}</span>
 
       </div>
 
-    `;
+    </article>
 
-    container.appendChild(card);
-
-  });
+  `).join("");
 
 }
 
 
-/* =================================================
-   8. RENDER GALERI
-================================================= */
+// 8. RENDER GALERI
 
 function renderGallery() {
 
-  const container = document.getElementById("gallery-list");
+  const container =
+    document.getElementById("gallery-list");
 
   if (!container) return;
 
-  container.innerHTML = "";
+  container.innerHTML = gallery.map((item, index) => `
 
-  gallery.forEach((item, index) => {
-
-    const card = document.createElement("div");
-
-    card.className = "gallery-item";
-
-    card.innerHTML = `
+    <div
+      class="gallery-item"
+      onclick="openLightbox(${index})"
+    >
 
       <img
         src="${item.foto}"
@@ -493,46 +383,44 @@ function renderGallery() {
         loading="lazy"
       >
 
-      <span class="gallery-caption">
-        ${item.judul}
-      </span>
+      <div class="gallery-caption">
+        <h4>${item.judul}</h4>
+      </div>
 
-    `;
+    </div>
 
-    card.addEventListener("click", () => {
-
-      openLightbox(item.foto, item.judul);
-
-    });
-
-    container.appendChild(card);
-
-  });
+  `).join("");
 
 }
 
 
-/* =================================================
-   9. LIGHTBOX GALERI
-================================================= */
+// 9. LIGHTBOX GALERI
 
-function openLightbox(image, caption) {
+function openLightbox(index) {
 
-  const lightbox = document.getElementById("lightbox");
+  const item = gallery[index];
 
-  const lightboxImage = document.getElementById("lightbox-image");
+  if (!item) return;
 
-  const lightboxCaption = document.getElementById("lightbox-caption");
+  const lightbox =
+    document.getElementById("lightbox");
 
-  if (!lightbox || !lightboxImage) return;
+  const image =
+    document.getElementById("lightbox-image");
 
-  lightboxImage.src = image;
+  const caption =
+    document.getElementById("lightbox-caption");
 
-  lightboxCaption.textContent = caption;
+  if (!lightbox || !image) return;
+
+  image.src = item.foto;
+  image.alt = item.judul;
+
+  if (caption) {
+    caption.textContent = item.judul;
+  }
 
   lightbox.classList.add("active");
-
-  lightbox.setAttribute("aria-hidden", "false");
 
   document.body.style.overflow = "hidden";
 
@@ -541,38 +429,48 @@ function openLightbox(image, caption) {
 
 function closeLightbox() {
 
-  const lightbox = document.getElementById("lightbox");
+  const lightbox =
+    document.getElementById("lightbox");
 
   if (!lightbox) return;
 
   lightbox.classList.remove("active");
-
-  lightbox.setAttribute("aria-hidden", "true");
 
   document.body.style.overflow = "";
 
 }
 
 
-const lightboxClose = document.getElementById("lightbox-close");
+function initLightbox() {
 
-if (lightboxClose) {
+  const lightbox =
+    document.getElementById("lightbox");
 
-  lightboxClose.addEventListener("click", closeLightbox);
+  const closeButton =
+    document.getElementById("lightbox-close");
 
-}
+  if (closeButton) {
 
+    closeButton.addEventListener("click", closeLightbox);
 
-const lightbox = document.getElementById("lightbox");
+  }
 
-if (lightbox) {
+  if (lightbox) {
 
-  lightbox.addEventListener("click", event => {
+    lightbox.addEventListener("click", event => {
 
-    if (event.target === lightbox) {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
 
+    });
+
+  }
+
+  document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
       closeLightbox();
-
     }
 
   });
@@ -580,45 +478,39 @@ if (lightbox) {
 }
 
 
-document.addEventListener("keydown", event => {
+// 10. NAVIGASI MOBILE
 
-  if (event.key === "Escape") {
+function initMobileMenu() {
 
-    closeLightbox();
+  const menuToggle =
+    document.querySelector(".menu-toggle");
 
-  }
+  const navLinks =
+    document.querySelector(".nav-links");
 
-});
-
-
-/* =================================================
-   10. NAVBAR MOBILE
-================================================= */
-
-const menuToggle = document.getElementById("menuToggle");
-
-const navMenu = document.getElementById("navMenu");
-
-if (menuToggle && navMenu) {
+  if (!menuToggle || !navLinks) return;
 
   menuToggle.addEventListener("click", () => {
 
-    const isOpen = navMenu.classList.toggle("active");
+    const isOpen =
+      navLinks.classList.toggle("active");
 
-    menuToggle.textContent = isOpen ? "✕" : "☰";
+    menuToggle.classList.toggle("active", isOpen);
 
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
 
   });
 
-
-  navMenu.querySelectorAll("a").forEach(link => {
+  navLinks.querySelectorAll("a").forEach(link => {
 
     link.addEventListener("click", () => {
 
-      navMenu.classList.remove("active");
+      navLinks.classList.remove("active");
 
-      menuToggle.textContent = "☰";
+      menuToggle.classList.remove("active");
 
       menuToggle.setAttribute("aria-expanded", "false");
 
@@ -629,25 +521,24 @@ if (menuToggle && navMenu) {
 }
 
 
-/* =================================================
-   11. COPYRIGHT OTOMATIS
-================================================= */
+// 11. TAHUN OTOMATIS FOOTER
 
 function updateCopyright() {
 
-  const copyright = document.querySelector(".copyright");
+  const yearElement =
+    document.getElementById("current-year");
 
-  if (!copyright) return;
+  if (yearElement) {
 
-  copyright.textContent =
-    `© ${new Date().getFullYear()} ${CONFIG.namaUsaha}. Hak Cipta Dilindungi.`;
+    yearElement.textContent =
+      new Date().getFullYear();
+
+  }
 
 }
 
 
-/* =================================================
-   12. INISIALISASI WEBSITE
-================================================= */
+// 12. INISIALISASI WEBSITE
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -656,6 +547,10 @@ document.addEventListener("DOMContentLoaded", () => {
   renderTestimonials();
 
   renderGallery();
+
+  initMobileMenu();
+
+  initLightbox();
 
   updateCopyright();
 
