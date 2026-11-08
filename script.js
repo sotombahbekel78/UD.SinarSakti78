@@ -1,7 +1,6 @@
-
-/* =========================================
+/* ==============================
    KONFIGURASI WEBSITE
-========================================= */
+============================== */
 
 const CONFIG = {
   namaUsaha: "UD. SINAR SAKTI 78",
@@ -10,9 +9,9 @@ const CONFIG = {
 };
 
 
-/* =========================================
+/* ==============================
    DATA PRODUK
-========================================= */
+============================== */
 
 const products = [
   {
@@ -31,6 +30,7 @@ const products = [
     stok: "Tersedia",
     distribusi: "Khusus Pulau Jawa, antar sampai lokasi"
   },
+
   {
     id: 2,
     nama: "Pupuk Kohe Giling Fermentasi",
@@ -50,14 +50,9 @@ const products = [
 ];
 
 
-/* =========================================
-   DATA GALERI AKTIVITAS PRODUKSI
-
-   Foto: JPG, JPEG, PNG, WebP, GIF
-   Video: MP4, WebM, OGG
-
-   Rasio media bebas dan dipertahankan.
-========================================= */
+/* ==============================
+   DATA GALERI
+============================== */
 
 const gallery = [
   {
@@ -93,42 +88,9 @@ const gallery = [
 ];
 
 
-/* =========================================
-   DATA PENGALAMAN PELANGGAN
-
-   Ganti data contoh dengan testimoni asli.
-   Jangan tampilkan ulasan ilustrasi sebagai
-   pengalaman pelanggan yang benar-benar terjadi.
-========================================= */
-
-const testimonials = [
-  {
-    nama: "Nama Pelanggan 1",
-    lokasi: "Kota / Kabupaten",
-    produk: "Pupuk Kohe Kambing Etawa Original",
-    ulasan: "Tuliskan pengalaman pelanggan setelah membeli produk.",
-    rating: 5
-  },
-  {
-    nama: "Nama Pelanggan 2",
-    lokasi: "Kota / Kabupaten",
-    produk: "Pupuk Kohe Giling Fermentasi",
-    ulasan: "Tuliskan pendapat pelanggan tentang produk dan pelayanan.",
-    rating: 5
-  },
-  {
-    nama: "Nama Pelanggan 3",
-    lokasi: "Kota / Kabupaten",
-    produk: "Pupuk Organik Kambing Etawa",
-    ulasan: "Tuliskan pengalaman pelanggan mengenai pemesanan atau pengiriman.",
-    rating: 5
-  }
-];
-
-
-/* =========================================
-   FUNGSI WHATSAPP
-========================================= */
+/* ==============================
+   WHATSAPP
+============================== */
 
 function sendWhatsApp(message) {
   const url =
@@ -137,12 +99,18 @@ function sendWhatsApp(message) {
   window.open(url, "_blank", "noopener,noreferrer");
 }
 
+
 function orderGeneral() {
   const message =
-    `Halo ${CONFIG.namaUsaha}, saya ingin bertanya mengenai produk pupuk organik kambing etawa. Mohon informasi harga, stok, dan pengiriman.`;
+    `Halo ${CONFIG.namaUsaha}, saya ingin bertanya mengenai produk pupuk organik kambing etawa.
+
+Mohon informasi harga, stok, dan pengiriman.
+
+Terima kasih.`;
 
   sendWhatsApp(message);
 }
+
 
 function orderProduct(id) {
   const product = products.find(item => item.id === id);
@@ -155,15 +123,17 @@ function orderProduct(id) {
 Nama produk: ${product.nama}
 Kemasan: ${product.kemasan}
 
-Mohon informasi harga, ketersediaan stok, dan biaya pengiriman. Terima kasih.`;
+Mohon informasi harga, ketersediaan stok, dan biaya pengiriman.
+
+Terima kasih.`;
 
   sendWhatsApp(message);
 }
 
 
-/* =========================================
-   RENDER PRODUK
-========================================= */
+/* ==============================
+   TAMPILKAN PRODUK
+============================== */
 
 function renderProducts() {
   const container = document.getElementById("product-list");
@@ -231,15 +201,18 @@ function renderProducts() {
         </p>
 
         <div class="fertilizer-actions">
-          <span class="fertilizer-price">${product.harga}</span>
+
+          <span class="fertilizer-price">
+            ${product.harga}
+          </span>
 
           <button
             type="button"
             class="btn btn-primary"
-            onclick="orderProduct(${product.id})"
-          >
+            onclick="orderProduct(${product.id})">
             Tanya Produk via WhatsApp
           </button>
+
         </div>
 
       </div>
@@ -248,9 +221,9 @@ function renderProducts() {
 }
 
 
-/* =========================================
-   DETEKSI FORMAT VIDEO
-========================================= */
+/* ==============================
+   TIPE VIDEO
+============================== */
 
 function getVideoMimeType(filename) {
   const extension = filename.split(".").pop().toLowerCase();
@@ -265,9 +238,9 @@ function getVideoMimeType(filename) {
 }
 
 
-/* =========================================
-   RENDER GALERI FOTO DAN VIDEO
-========================================= */
+/* ==============================
+   TAMPILKAN GALERI
+============================== */
 
 function renderGallery() {
   const container = document.getElementById("gallery-list");
@@ -284,24 +257,28 @@ function renderGallery() {
   }
 
   container.innerHTML = gallery.map((item, index) => {
+
     let mediaElement = "";
 
     if (item.type === "video") {
+
       mediaElement = `
         <video
           controls
           playsinline
           preload="metadata"
-          aria-label="${item.title}"
-        >
+          aria-label="${item.title}">
+
           <source
             src="${item.file}"
-            type="${getVideoMimeType(item.file)}"
-          >
+            type="${getVideoMimeType(item.file)}">
+
           Browser Anda tidak mendukung pemutaran video.
         </video>
       `;
+
     } else {
+
       mediaElement = `
         <img
           src="${item.file}"
@@ -310,6 +287,7 @@ function renderGallery() {
           onerror="this.style.display='none'; this.parentElement.innerHTML='<p class=\\'media-error\\'>Foto belum tersedia</p>';"
         >
       `;
+
     }
 
     return `
@@ -326,68 +304,14 @@ function renderGallery() {
 
       </article>
     `;
+
   }).join("");
 }
 
 
-/* =========================================
-   RENDER PENGALAMAN PELANGGAN
-========================================= */
-
-function renderTestimonials() {
-  const container = document.getElementById("testimonial-list");
-
-  if (!container) return;
-
-  if (!testimonials.length) {
-    container.innerHTML = `
-      <div class="empty-testimonial">
-        Pengalaman pelanggan akan ditampilkan di sini.
-      </div>
-    `;
-    return;
-  }
-
-  container.innerHTML = testimonials.map(item => {
-    const initial = item.nama.trim().charAt(0).toUpperCase();
-    const rating = Math.max(0, Math.min(5, Number(item.rating) || 0));
-    const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
-
-    return `
-      <article class="testimonial-card">
-
-        <div class="testimonial-stars" aria-label="Rating ${rating} dari 5">
-          ${stars}
-        </div>
-
-        <p class="testimonial-quote">
-          “${item.ulasan}”
-        </p>
-
-        <div class="testimonial-customer">
-          <div class="customer-avatar">
-            ${initial}
-          </div>
-
-          <div class="testimonial-customer-info">
-            <strong>${item.nama}</strong>
-            <span>${item.lokasi}</span>
-          </div>
-        </div>
-
-        <div class="testimonial-product">
-          Produk: ${item.produk}
-        </div>
-
-      </article>
-    `;
-  }).join("");
-}
-
-
-/* =========================================
+/* ==============================
    MENU MOBILE
-========================================= */
+============================== */
 
 function initMobileMenu() {
   const toggle = document.querySelector(".menu-toggle");
@@ -396,77 +320,101 @@ function initMobileMenu() {
   if (!toggle || !nav) return;
 
   toggle.addEventListener("click", () => {
+
     const isOpen = nav.classList.toggle("is-open");
 
     toggle.setAttribute("aria-expanded", String(isOpen));
+
     toggle.setAttribute(
       "aria-label",
       isOpen ? "Tutup menu" : "Buka menu"
     );
+
   });
+
 
   nav.querySelectorAll("a").forEach(link => {
+
     link.addEventListener("click", () => {
+
       nav.classList.remove("is-open");
+
       toggle.setAttribute("aria-expanded", "false");
       toggle.setAttribute("aria-label", "Buka menu");
+
     });
+
   });
+
 
   document.addEventListener("click", event => {
+
     const clickedInsideMenu =
-      nav.contains(event.target) || toggle.contains(event.target);
+      nav.contains(event.target) ||
+      toggle.contains(event.target);
 
     if (!clickedInsideMenu) {
+
       nav.classList.remove("is-open");
+
       toggle.setAttribute("aria-expanded", "false");
       toggle.setAttribute("aria-label", "Buka menu");
+
     }
+
   });
 }
 
 
-/* =========================================
+/* ==============================
    TOMBOL WHATSAPP
-========================================= */
+============================== */
 
 function initWhatsAppButtons() {
+
   document.querySelectorAll("[data-whatsapp-general]").forEach(button => {
+
     button.addEventListener("click", event => {
+
       event.preventDefault();
       orderGeneral();
+
     });
 
-    button.setAttribute(
-      "href",
-      `https://wa.me/${CONFIG.whatsapp}`
-    );
   });
+
 }
 
 
-/* =========================================
-   TAHUN OTOMATIS FOOTER
-========================================= */
+/* ==============================
+   TAHUN FOOTER
+============================== */
 
 function updateCopyright() {
+
   const yearElement = document.getElementById("current-year");
 
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
+
 }
 
 
-/* =========================================
+/* ==============================
    INISIALISASI WEBSITE
-========================================= */
+============================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+
   renderProducts();
+
   renderGallery();
-  renderTestimonials();
+
   initMobileMenu();
+
   initWhatsAppButtons();
+
   updateCopyright();
+
 });
