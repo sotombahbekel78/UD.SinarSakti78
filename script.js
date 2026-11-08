@@ -1,18 +1,11 @@
-/* ==============================
-   KONFIGURASI WEBSITE
-============================== */
-
+/* KONFIGURASI */
 const CONFIG = {
   namaUsaha: "UD. SINAR SAKTI 78",
-  whatsapp: "6285292661522",
-  lokasi: "Kaligesing, Purworejo, Jawa Tengah"
+  whatsapp: "6285292661522"
 };
 
 
-/* ==============================
-   DATA PRODUK
-============================== */
-
+/* DATA PRODUK */
 const products = [
   {
     id: 1,
@@ -30,7 +23,6 @@ const products = [
     stok: "Tersedia",
     distribusi: "Khusus Pulau Jawa, antar sampai lokasi"
   },
-
   {
     id: 2,
     nama: "Pupuk Kohe Giling Fermentasi",
@@ -50,55 +42,13 @@ const products = [
 ];
 
 
-/* ==============================
-   DATA GALERI
-============================== */
-
-const gallery = [
-  {
-    type: "image",
-    title: "Aktivitas Peternakan",
-    file: "images/aktivitas-1.jpg"
-  },
-  {
-    type: "video",
-    title: "Kegiatan di Kandang",
-    file: "videos/aktivitas-2.mp4"
-  },
-  {
-    type: "image",
-    title: "Proses Pengolahan Pupuk",
-    file: "images/aktivitas-3.jpg"
-  },
-  {
-    type: "video",
-    title: "Proses Penggilingan dan Fermentasi",
-    file: "videos/aktivitas-4.mp4"
-  },
-  {
-    type: "image",
-    title: "Pengemasan Produk",
-    file: "images/aktivitas-5.jpg"
-  },
-  {
-    type: "video",
-    title: "Persiapan Pengiriman",
-    file: "videos/aktivitas-6.mp4"
-  }
-];
-
-
-/* ==============================
-   WHATSAPP
-============================== */
-
+/* WHATSAPP */
 function sendWhatsApp(message) {
   const url =
     `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
 
   window.open(url, "_blank", "noopener,noreferrer");
 }
-
 
 function orderGeneral() {
   const message =
@@ -110,7 +60,6 @@ Terima kasih.`;
 
   sendWhatsApp(message);
 }
-
 
 function orderProduct(id) {
   const product = products.find(item => item.id === id);
@@ -131,10 +80,7 @@ Terima kasih.`;
 }
 
 
-/* ==============================
-   TAMPILKAN PRODUK
-============================== */
-
+/* TAMPILKAN PRODUK */
 function renderProducts() {
   const container = document.getElementById("product-list");
 
@@ -148,8 +94,7 @@ function renderProducts() {
           src="${product.foto}"
           alt="${product.nama}"
           loading="lazy"
-          onerror="this.style.display='none'; this.parentElement.innerHTML='<p class=\\'image-error\\'>Foto produk belum tersedia</p>';"
-        >
+          onerror="this.style.display='none'; this.parentElement.innerHTML='<p class=\\'image-error\\'>Foto produk belum tersedia</p>';">
       </div>
 
       <div class="fertilizer-content">
@@ -221,98 +166,7 @@ function renderProducts() {
 }
 
 
-/* ==============================
-   TIPE VIDEO
-============================== */
-
-function getVideoMimeType(filename) {
-  const extension = filename.split(".").pop().toLowerCase();
-
-  const mimeTypes = {
-    mp4: "video/mp4",
-    webm: "video/webm",
-    ogg: "video/ogg"
-  };
-
-  return mimeTypes[extension] || "video/mp4";
-}
-
-
-/* ==============================
-   TAMPILKAN GALERI
-============================== */
-
-function renderGallery() {
-  const container = document.getElementById("gallery-list");
-
-  if (!container) return;
-
-  if (!gallery.length) {
-    container.innerHTML = `
-      <div class="empty-gallery">
-        Dokumentasi aktivitas produksi akan ditampilkan di sini.
-      </div>
-    `;
-    return;
-  }
-
-  container.innerHTML = gallery.map((item, index) => {
-
-    let mediaElement = "";
-
-    if (item.type === "video") {
-
-      mediaElement = `
-        <video
-          controls
-          playsinline
-          preload="metadata"
-          aria-label="${item.title}">
-
-          <source
-            src="${item.file}"
-            type="${getVideoMimeType(item.file)}">
-
-          Browser Anda tidak mendukung pemutaran video.
-        </video>
-      `;
-
-    } else {
-
-      mediaElement = `
-        <img
-          src="${item.file}"
-          alt="${item.title}"
-          loading="lazy"
-          onerror="this.style.display='none'; this.parentElement.innerHTML='<p class=\\'media-error\\'>Foto belum tersedia</p>';"
-        >
-      `;
-
-    }
-
-    return `
-      <article class="production-item">
-
-        <div class="production-media">
-          ${mediaElement}
-        </div>
-
-        <div class="production-caption">
-          <span>${String(index + 1).padStart(2, "0")}</span>
-          <h3>${item.title}</h3>
-        </div>
-
-      </article>
-    `;
-
-  }).join("");
-}
-
-
-/* ==============================
-   MENU MOBILE
-============================== */
-
+/* MENU MOBILE */
 function initMobileMenu() {
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav-links");
@@ -320,101 +174,62 @@ function initMobileMenu() {
   if (!toggle || !nav) return;
 
   toggle.addEventListener("click", () => {
-
     const isOpen = nav.classList.toggle("is-open");
 
     toggle.setAttribute("aria-expanded", String(isOpen));
-
     toggle.setAttribute(
       "aria-label",
       isOpen ? "Tutup menu" : "Buka menu"
     );
-
   });
-
 
   nav.querySelectorAll("a").forEach(link => {
-
     link.addEventListener("click", () => {
-
       nav.classList.remove("is-open");
-
       toggle.setAttribute("aria-expanded", "false");
       toggle.setAttribute("aria-label", "Buka menu");
-
     });
-
   });
 
-
   document.addEventListener("click", event => {
-
     const clickedInsideMenu =
       nav.contains(event.target) ||
       toggle.contains(event.target);
 
     if (!clickedInsideMenu) {
-
       nav.classList.remove("is-open");
-
       toggle.setAttribute("aria-expanded", "false");
       toggle.setAttribute("aria-label", "Buka menu");
-
     }
-
   });
 }
 
 
-/* ==============================
-   TOMBOL WHATSAPP
-============================== */
-
+/* TOMBOL WHATSAPP */
 function initWhatsAppButtons() {
-
   document.querySelectorAll("[data-whatsapp-general]").forEach(button => {
-
     button.addEventListener("click", event => {
-
       event.preventDefault();
       orderGeneral();
-
     });
-
   });
-
 }
 
 
-/* ==============================
-   TAHUN FOOTER
-============================== */
-
+/* TAHUN FOOTER */
 function updateCopyright() {
-
   const yearElement = document.getElementById("current-year");
 
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
-
 }
 
 
-/* ==============================
-   INISIALISASI WEBSITE
-============================== */
-
+/* INISIALISASI */
 document.addEventListener("DOMContentLoaded", () => {
-
   renderProducts();
-
-  renderGallery();
-
   initMobileMenu();
-
   initWhatsAppButtons();
-
   updateCopyright();
-
 });
