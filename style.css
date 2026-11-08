@@ -1,7 +1,3 @@
-/* ==============================
-   VARIABLES & RESET
-============================== */
-
 :root {
   --forest: #174B32;
   --natural-green: #00A651;
@@ -11,10 +7,8 @@
   --white: #FFFFFF;
   --light-gray: #E9EDE8;
   --muted: #68736B;
-
   --heading-font: "Bricolage Grotesque", sans-serif;
   --body-font: "Figtree", sans-serif;
-
   --container: 1160px;
 }
 
@@ -60,9 +54,7 @@ button {
 }
 
 
-/* ==============================
-   HEADER
-============================== */
+/* HEADER */
 
 .site-header {
   position: sticky;
@@ -89,8 +81,8 @@ button {
 }
 
 .brand img {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
   border-radius: 5px;
 }
@@ -124,8 +116,8 @@ button {
   color: #465149;
   font-size: 12px;
   font-weight: 700;
-  transition: color 0.2s ease;
   white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
@@ -164,9 +156,7 @@ button {
 }
 
 
-/* ==============================
-   BUTTONS
-============================== */
+/* BUTTON */
 
 .btn {
   display: inline-flex;
@@ -215,9 +205,7 @@ button {
 }
 
 
-/* ==============================
-   HERO
-============================== */
+/* HERO - TANPA GAMBAR BACKGROUND */
 
 .hero {
   position: relative;
@@ -226,18 +214,22 @@ button {
   align-items: center;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(13, 39, 25, 0.92), rgba(13, 39, 25, 0.52)),
-    url("images/aktivitas-1.jpg") center 55% / cover no-repeat;
+    radial-gradient(circle at 85% 20%, rgba(0, 166, 81, 0.22), transparent 32%),
+    linear-gradient(120deg, #102E20 0%, #174B32 58%, #24613E 100%);
 }
 
-.hero-overlay {
+.hero::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    0deg,
-    rgba(12, 33, 21, 0.25),
-    transparent 60%
-  );
+  width: 420px;
+  height: 420px;
+  right: -140px;
+  bottom: -200px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 45px rgba(255, 255, 255, 0.025),
+    0 0 0 90px rgba(255, 255, 255, 0.025);
 }
 
 .hero-content {
@@ -307,9 +299,7 @@ button {
 }
 
 
-/* ==============================
-   INTRO STRIP
-============================== */
+/* INTRO STRIP */
 
 .intro-strip {
   padding: 27px 0;
@@ -342,9 +332,7 @@ button {
 }
 
 
-/* ==============================
-   SECTION HEADING
-============================== */
+/* SECTION HEADING */
 
 .section-heading {
   max-width: 650px;
@@ -377,9 +365,7 @@ button {
 }
 
 
-/* ==============================
-   ABOUT
-============================== */
+/* ABOUT */
 
 .about-section {
   background: var(--ivory);
@@ -454,9 +440,7 @@ button {
 }
 
 
-/* ==============================
-   PRODUCTS
-============================== */
+/* PRODUCTS */
 
 .product-section {
   background: var(--white);
@@ -562,8 +546,7 @@ button {
   font-weight: 800;
 }
 
-.image-error,
-.media-error {
+.image-error {
   display: flex;
   min-height: 220px;
   align-items: center;
@@ -575,9 +558,7 @@ button {
 }
 
 
-/* ==============================
-   ADVANTAGES
-============================== */
+/* ADVANTAGES */
 
 .advantage-section {
   background: var(--ivory);
@@ -630,74 +611,7 @@ button {
 }
 
 
-/* ==============================
-   PRODUCTION GALLERY
-============================== */
-
-.production-section {
-  background: var(--white);
-}
-
-.production-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.production-item {
-  overflow: hidden;
-  border: 1px solid var(--light-gray);
-  background: var(--white);
-}
-
-.production-media {
-  width: 100%;
-  height: 245px;
-  overflow: hidden;
-  background: var(--ivory);
-}
-
-.production-media img,
-.production-media video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.production-caption {
-  display: flex;
-  align-items: flex-start;
-  gap: 13px;
-  padding: 18px;
-}
-
-.production-caption > span {
-  color: var(--natural-green);
-  font-family: var(--heading-font);
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.production-caption h3 {
-  color: var(--forest);
-  font-family: var(--heading-font);
-  font-size: 15px;
-  line-height: 1.4;
-}
-
-.empty-gallery {
-  grid-column: 1 / -1;
-  padding: 35px;
-  color: var(--muted);
-  background: var(--ivory);
-  text-align: center;
-}
-
-
-/* ==============================
-   ORDER STEPS
-============================== */
+/* ORDER */
 
 .order-section {
   background: var(--ivory);
@@ -736,9 +650,7 @@ button {
 }
 
 
-/* ==============================
-   CONTACT CTA
-============================== */
+/* CONTACT */
 
 .contact-section {
   padding: 75px 0;
@@ -775,9 +687,7 @@ button {
 }
 
 
-/* ==============================
-   LOCATION
-============================== */
+/* LOCATION */
 
 .location-section {
   background: var(--ivory);
@@ -852,14 +762,8 @@ button {
   font-size: 13px;
 }
 
-.location-info .btn {
-  margin-top: 0;
-}
 
-
-/* ==============================
-   FOOTER
-============================== */
+/* FOOTER */
 
 .site-footer {
   color: var(--white);
@@ -941,9 +845,7 @@ button {
 }
 
 
-/* ==============================
-   FLOATING WHATSAPP
-============================== */
+/* FLOATING WHATSAPP */
 
 .floating-whatsapp {
   position: fixed;
@@ -983,12 +885,9 @@ button {
 }
 
 
-/* ==============================
-   RESPONSIVE TABLET
-============================== */
+/* TABLET */
 
 @media (max-width: 1050px) {
-
   .header-inner {
     gap: 15px;
   }
@@ -1006,8 +905,8 @@ button {
   }
 
   .brand img {
-    width: 42px;
-    height: 42px;
+    width: 46px;
+    height: 46px;
   }
 
   .about-grid {
@@ -1025,12 +924,9 @@ button {
 }
 
 
-/* ==============================
-   RESPONSIVE MOBILE
-============================== */
+/* MOBILE */
 
 @media (max-width: 760px) {
-
   .container {
     width: min(100% - 36px, var(--container));
   }
@@ -1044,8 +940,8 @@ button {
   }
 
   .brand img {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
   }
 
   .brand strong {
@@ -1092,7 +988,6 @@ button {
 
   .hero {
     min-height: 590px;
-    background-position: 58% center;
   }
 
   .hero-content {
@@ -1189,15 +1084,6 @@ button {
     font-size: 16px;
   }
 
-  .production-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .production-media {
-    height: 240px;
-  }
-
   .contact-inner {
     align-items: flex-start;
     flex-direction: column;
@@ -1241,12 +1127,9 @@ button {
 }
 
 
-/* ==============================
-   SMALL MOBILE
-============================== */
+/* SMALL MOBILE */
 
 @media (max-width: 420px) {
-
   .advantage-grid,
   .order-grid {
     grid-template-columns: 1fr;
