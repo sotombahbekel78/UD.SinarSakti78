@@ -1,11 +1,7 @@
 
-// =====================================================
-// UD. SINAR SAKTI 78
-// WEBSITE JAVASCRIPT
-// =====================================================
-
-
-// 1. KONFIGURASI WEBSITE
+/* =========================================
+   KONFIGURASI WEBSITE
+========================================= */
 
 const CONFIG = {
   namaUsaha: "UD. SINAR SAKTI 78",
@@ -14,217 +10,176 @@ const CONFIG = {
 };
 
 
-// 2. DATA PRODUK
+/* =========================================
+   DATA PRODUK
+========================================= */
 
 const products = [
-
   {
     id: 1,
     nama: "Pupuk Kohe Kambing Etawa Organik",
     kategori: "PUPUK ORGANIK",
-
     deskripsi:
       "Pupuk organik berbahan dasar kotoran kambing etawa (kohe) dalam kondisi original. Dikemas menggunakan karung beras dengan ukuran kurang lebih 50 kg.",
-
     jenis: "Pupuk organik",
     bahan: "Kotoran kambing etawa",
     kemasan: "Karung beras ±50 kg",
     harga: "Hubungi No. WhatsApp",
-
-    foto: "images/pupuk-original.jpg",
-
+    foto: "images/UD-Original.jpg",
     keterangan:
       "Pupuk kohe kambing etawa dalam kondisi original, langsung dari kandang.",
-
     stok: "Tersedia",
     distribusi: "Khusus Pulau Jawa, antar sampai lokasi"
   },
-
   {
     id: 2,
     nama: "Pupuk Kohe Giling Fermentasi",
     kategori: "PUPUK ORGANIK",
-
     deskripsi:
       "Pupuk organik berbahan dasar kotoran kambing etawa yang melalui proses penggilingan dan fermentasi. Dikemas menggunakan karung beras dengan ukuran kurang lebih 25 kg.",
-
     jenis: "Pupuk organik",
     bahan: "Kotoran kambing etawa",
     kemasan: "Karung beras ±25 kg",
     harga: "Hubungi No. WhatsApp",
-
-    foto: "images/pupuk-fermentasi.jpg",
-
+    foto: "images/UD-Fermentasi.jpg",
     keterangan:
       "Pupuk kohe kambing etawa yang telah melalui proses penggilingan dan fermentasi.",
-
     stok: "Tersedia",
     distribusi: "Khusus Pulau Jawa, antar sampai lokasi"
   }
-
 ];
 
 
-// 3. DATA TESTIMONI
-// Tambahkan testimoni pelanggan asli di bagian ini.
+/* =========================================
+   DATA GALERI AKTIVITAS PRODUKSI
 
-const testimonials = [
+   Foto: JPG, JPEG, PNG, WebP, GIF
+   Video: MP4, WebM, OGG
 
-  /*
-  {
-    nama: "Nama Pelanggan",
-    lokasi: "Yogyakarta",
-    pesan: "Tuliskan ulasan pelanggan di sini.",
-    foto: "images/testimoni-1.jpg"
-  }
-  */
-
-];
-
-
-// 4. DATA GALERI
+   Rasio media bebas dan dipertahankan.
+========================================= */
 
 const gallery = [
-
   {
-    judul: "Peternakan Kambing Etawa",
-    foto: "images/kandang.jpg"
+    type: "image",
+    title: "Aktivitas Peternakan",
+    file: "images/aktivitas-1.jpg"
   },
-
   {
-    judul: "Proses Produksi Pupuk",
-    foto: "images/produksi.jpg"
+    type: "video",
+    title: "Kegiatan di Kandang",
+    file: "videos/aktivitas-2.mp4"
   },
-
   {
-    judul: "Pupuk Kohe Original",
-    foto: "images/pupuk-original.jpg"
+    type: "image",
+    title: "Proses Pengolahan Pupuk",
+    file: "images/aktivitas-3.jpg"
   },
-
   {
-    judul: "Pupuk Kohe Giling Fermentasi",
-    foto: "images/pupuk-fermentasi.jpg"
+    type: "video",
+    title: "Proses Penggilingan dan Fermentasi",
+    file: "videos/aktivitas-4.mp4"
   },
-
   {
-    judul: "Pengemasan Produk",
-    foto: "images/pengemasan.jpg"
+    type: "image",
+    title: "Pengemasan Produk",
+    file: "images/aktivitas-5.jpg"
   },
-
   {
-    judul: "Persiapan Pengiriman",
-    foto: "images/pengiriman.jpg"
+    type: "video",
+    title: "Persiapan Pengiriman",
+    file: "videos/aktivitas-6.mp4"
   }
-
 ];
 
 
-// 5. FUNGSI WHATSAPP
+/* =========================================
+   DATA PENGALAMAN PELANGGAN
+
+   Ganti data contoh dengan testimoni asli.
+   Jangan tampilkan ulasan ilustrasi sebagai
+   pengalaman pelanggan yang benar-benar terjadi.
+========================================= */
+
+const testimonials = [
+  {
+    nama: "Nama Pelanggan 1",
+    lokasi: "Kota / Kabupaten",
+    produk: "Pupuk Kohe Kambing Etawa Original",
+    ulasan: "Tuliskan pengalaman pelanggan setelah membeli produk.",
+    rating: 5
+  },
+  {
+    nama: "Nama Pelanggan 2",
+    lokasi: "Kota / Kabupaten",
+    produk: "Pupuk Kohe Giling Fermentasi",
+    ulasan: "Tuliskan pendapat pelanggan tentang produk dan pelayanan.",
+    rating: 5
+  },
+  {
+    nama: "Nama Pelanggan 3",
+    lokasi: "Kota / Kabupaten",
+    produk: "Pupuk Organik Kambing Etawa",
+    ulasan: "Tuliskan pengalaman pelanggan mengenai pemesanan atau pengiriman.",
+    rating: 5
+  }
+];
+
+
+/* =========================================
+   FUNGSI WHATSAPP
+========================================= */
 
 function sendWhatsApp(message) {
-
   const url =
     `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
 
-  window.open(url, "_blank");
-
+  window.open(url, "_blank", "noopener,noreferrer");
 }
-
-
-// Pesan umum
 
 function orderGeneral() {
-
   const message =
-    `Halo ${CONFIG.namaUsaha}, saya tertarik dengan produk pupuk organik kambing etawa.
-
-Mohon informasi mengenai:
-
-1. Harga pupuk kohe organik kemasan ±50 kg.
-2. Harga pupuk kohe giling fermentasi kemasan ±25 kg.
-3. Ketersediaan stok.
-4. Biaya pengiriman ke lokasi saya.
-
-Lokasi pengiriman:
-
-Mohon informasi lebih lanjut. Terima kasih.`;
+    `Halo ${CONFIG.namaUsaha}, saya ingin bertanya mengenai produk pupuk organik kambing etawa. Mohon informasi harga, stok, dan pengiriman.`;
 
   sendWhatsApp(message);
-
 }
-
-
-// Pesan produk tertentu
 
 function orderProduct(id) {
-
   const product = products.find(item => item.id === id);
 
   if (!product) return;
 
   const message =
-    `Halo ${CONFIG.namaUsaha}, saya ingin memesan produk berikut:
+    `Halo ${CONFIG.namaUsaha}, saya tertarik dengan produk berikut:
 
 Nama produk: ${product.nama}
-Jenis produk: ${product.jenis}
 Kemasan: ${product.kemasan}
-Harga: ${product.harga}
-Status stok: ${product.stok}
 
-Mohon informasi harga dan biaya pengiriman ke lokasi saya.
-
-Terima kasih.`;
+Mohon informasi harga, ketersediaan stok, dan biaya pengiriman. Terima kasih.`;
 
   sendWhatsApp(message);
-
 }
 
 
-// Pertanyaan produk
-
-function detailProduct(id) {
-
-  const product = products.find(item => item.id === id);
-
-  if (!product) return;
-
-  const message =
-    `Halo ${CONFIG.namaUsaha}, saya ingin bertanya mengenai produk:
-
-${product.nama}
-
-Kemasan: ${product.kemasan}
-Jenis: ${product.jenis}
-
-Mohon informasi lebih lanjut mengenai harga, penggunaan, ketersediaan, dan pengiriman.
-
-Terima kasih.`;
-
-  sendWhatsApp(message);
-
-}
-
-
-// 6. RENDER PRODUK
+/* =========================================
+   RENDER PRODUK
+========================================= */
 
 function renderProducts() {
-
   const container = document.getElementById("product-list");
 
   if (!container) return;
 
   container.innerHTML = products.map(product => `
-
     <article class="fertilizer-card">
 
       <div class="fertilizer-image">
-
         <img
           src="${product.foto}"
           alt="${product.nama}"
           loading="lazy"
+          onerror="this.style.display='none'; this.parentElement.innerHTML='<p class=\\'image-error\\'>Foto produk belum tersedia</p>';"
         >
-
       </div>
 
       <div class="fertilizer-content">
@@ -235,9 +190,7 @@ function renderProducts() {
 
         <h3>${product.nama}</h3>
 
-        <p class="fertilizer-description">
-          ${product.deskripsi}
-        </p>
+        <p>${product.deskripsi}</p>
 
         <div class="fertilizer-details">
 
@@ -252,22 +205,22 @@ function renderProducts() {
           </div>
 
           <div class="fertilizer-detail">
-            <span>Ukuran Kemasan</span>
+            <span>Kemasan</span>
             <strong>${product.kemasan}</strong>
           </div>
 
           <div class="fertilizer-detail">
-            <span>Harga Produk</span>
-            <strong>${product.harga}</strong>
-          </div>
-
-          <div class="fertilizer-detail">
-            <span>Ketersediaan Stok</span>
+            <span>Ketersediaan</span>
             <strong>${product.stok}</strong>
           </div>
 
           <div class="fertilizer-detail">
-            <span>Pengiriman</span>
+            <span>Harga</span>
+            <strong>${product.harga}</strong>
+          </div>
+
+          <div class="fertilizer-detail">
+            <span>Distribusi</span>
             <strong>${product.distribusi}</strong>
           </div>
 
@@ -278,280 +231,242 @@ function renderProducts() {
         </p>
 
         <div class="fertilizer-actions">
+          <span class="fertilizer-price">${product.harga}</span>
 
           <button
-            class="btn-primary"
+            type="button"
+            class="btn btn-primary"
             onclick="orderProduct(${product.id})"
           >
-            Pesan via WhatsApp
+            Tanya Produk via WhatsApp
           </button>
-
-          <button
-            class="btn-secondary"
-            onclick="detailProduct(${product.id})"
-          >
-            Tanya Produk
-          </button>
-
         </div>
 
       </div>
-
     </article>
-
   `).join("");
-
 }
 
 
-// 7. RENDER TESTIMONI
+/* =========================================
+   DETEKSI FORMAT VIDEO
+========================================= */
 
-function renderTestimonials() {
+function getVideoMimeType(filename) {
+  const extension = filename.split(".").pop().toLowerCase();
 
-  const container =
-    document.getElementById("testimonial-list");
+  const mimeTypes = {
+    mp4: "video/mp4",
+    webm: "video/webm",
+    ogg: "video/ogg"
+  };
 
-  if (!container) return;
-
-  if (testimonials.length === 0) {
-
-    container.innerHTML = `
-      <div class="testimonial-empty">
-        Testimoni pelanggan akan ditampilkan di sini.
-      </div>
-    `;
-
-    return;
-
-  }
-
-  container.innerHTML = testimonials.map(item => `
-
-    <article class="testimonial-card">
-
-      ${
-        item.foto
-          ? `
-            <img
-              src="${item.foto}"
-              alt="Testimoni ${item.nama}"
-              class="testimonial-image"
-              loading="lazy"
-            >
-          `
-          : ""
-      }
-
-      <div class="testimonial-content">
-
-        <p class="testimonial-message">
-          "${item.pesan}"
-        </p>
-
-        <h4>${item.nama}</h4>
-
-        <span>${item.lokasi || ""}</span>
-
-      </div>
-
-    </article>
-
-  `).join("");
-
+  return mimeTypes[extension] || "video/mp4";
 }
 
 
-// 8. RENDER GALERI
+/* =========================================
+   RENDER GALERI FOTO DAN VIDEO
+========================================= */
 
 function renderGallery() {
-
-  const container =
-    document.getElementById("gallery-list");
+  const container = document.getElementById("gallery-list");
 
   if (!container) return;
 
-  container.innerHTML = gallery.map((item, index) => `
-
-    <div
-      class="gallery-item"
-      onclick="openLightbox(${index})"
-    >
-
-      <img
-        src="${item.foto}"
-        alt="${item.judul}"
-        loading="lazy"
-      >
-
-      <div class="gallery-caption">
-        <h4>${item.judul}</h4>
+  if (!gallery.length) {
+    container.innerHTML = `
+      <div class="empty-gallery">
+        Dokumentasi aktivitas produksi akan ditampilkan di sini.
       </div>
-
-    </div>
-
-  `).join("");
-
-}
-
-
-// 9. LIGHTBOX GALERI
-
-function openLightbox(index) {
-
-  const item = gallery[index];
-
-  if (!item) return;
-
-  const lightbox =
-    document.getElementById("lightbox");
-
-  const image =
-    document.getElementById("lightbox-image");
-
-  const caption =
-    document.getElementById("lightbox-caption");
-
-  if (!lightbox || !image) return;
-
-  image.src = item.foto;
-  image.alt = item.judul;
-
-  if (caption) {
-    caption.textContent = item.judul;
+    `;
+    return;
   }
 
-  lightbox.classList.add("active");
+  container.innerHTML = gallery.map((item, index) => {
+    let mediaElement = "";
 
-  document.body.style.overflow = "hidden";
-
-}
-
-
-function closeLightbox() {
-
-  const lightbox =
-    document.getElementById("lightbox");
-
-  if (!lightbox) return;
-
-  lightbox.classList.remove("active");
-
-  document.body.style.overflow = "";
-
-}
-
-
-function initLightbox() {
-
-  const lightbox =
-    document.getElementById("lightbox");
-
-  const closeButton =
-    document.getElementById("lightbox-close");
-
-  if (closeButton) {
-
-    closeButton.addEventListener("click", closeLightbox);
-
-  }
-
-  if (lightbox) {
-
-    lightbox.addEventListener("click", event => {
-
-      if (event.target === lightbox) {
-        closeLightbox();
-      }
-
-    });
-
-  }
-
-  document.addEventListener("keydown", event => {
-
-    if (event.key === "Escape") {
-      closeLightbox();
+    if (item.type === "video") {
+      mediaElement = `
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          aria-label="${item.title}"
+        >
+          <source
+            src="${item.file}"
+            type="${getVideoMimeType(item.file)}"
+          >
+          Browser Anda tidak mendukung pemutaran video.
+        </video>
+      `;
+    } else {
+      mediaElement = `
+        <img
+          src="${item.file}"
+          alt="${item.title}"
+          loading="lazy"
+          onerror="this.style.display='none'; this.parentElement.innerHTML='<p class=\\'media-error\\'>Foto belum tersedia</p>';"
+        >
+      `;
     }
 
-  });
+    return `
+      <article class="production-item">
 
+        <div class="production-media">
+          ${mediaElement}
+        </div>
+
+        <div class="production-caption">
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          <h3>${item.title}</h3>
+        </div>
+
+      </article>
+    `;
+  }).join("");
 }
 
 
-// 10. NAVIGASI MOBILE
+/* =========================================
+   RENDER PENGALAMAN PELANGGAN
+========================================= */
 
-function initMobileMenu() {
+function renderTestimonials() {
+  const container = document.getElementById("testimonial-list");
 
-  const menuToggle =
-    document.querySelector(".menu-toggle");
+  if (!container) return;
 
-  const navLinks =
-    document.querySelector(".nav-links");
-
-  if (!menuToggle || !navLinks) return;
-
-  menuToggle.addEventListener("click", () => {
-
-    const isOpen =
-      navLinks.classList.toggle("active");
-
-    menuToggle.classList.toggle("active", isOpen);
-
-    menuToggle.setAttribute(
-      "aria-expanded",
-      String(isOpen)
-    );
-
-  });
-
-  navLinks.querySelectorAll("a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-      navLinks.classList.remove("active");
-
-      menuToggle.classList.remove("active");
-
-      menuToggle.setAttribute("aria-expanded", "false");
-
-    });
-
-  });
-
-}
-
-
-// 11. TAHUN OTOMATIS FOOTER
-
-function updateCopyright() {
-
-  const yearElement =
-    document.getElementById("current-year");
-
-  if (yearElement) {
-
-    yearElement.textContent =
-      new Date().getFullYear();
-
+  if (!testimonials.length) {
+    container.innerHTML = `
+      <div class="empty-testimonial">
+        Pengalaman pelanggan akan ditampilkan di sini.
+      </div>
+    `;
+    return;
   }
 
+  container.innerHTML = testimonials.map(item => {
+    const initial = item.nama.trim().charAt(0).toUpperCase();
+    const rating = Math.max(0, Math.min(5, Number(item.rating) || 0));
+    const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+
+    return `
+      <article class="testimonial-card">
+
+        <div class="testimonial-stars" aria-label="Rating ${rating} dari 5">
+          ${stars}
+        </div>
+
+        <p class="testimonial-quote">
+          “${item.ulasan}”
+        </p>
+
+        <div class="testimonial-customer">
+          <div class="customer-avatar">
+            ${initial}
+          </div>
+
+          <div class="testimonial-customer-info">
+            <strong>${item.nama}</strong>
+            <span>${item.lokasi}</span>
+          </div>
+        </div>
+
+        <div class="testimonial-product">
+          Produk: ${item.produk}
+        </div>
+
+      </article>
+    `;
+  }).join("");
 }
 
 
-// 12. INISIALISASI WEBSITE
+/* =========================================
+   MENU MOBILE
+========================================= */
+
+function initMobileMenu() {
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".nav-links");
+
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is-open");
+
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute(
+      "aria-label",
+      isOpen ? "Tutup menu" : "Buka menu"
+    );
+  });
+
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Buka menu");
+    });
+  });
+
+  document.addEventListener("click", event => {
+    const clickedInsideMenu =
+      nav.contains(event.target) || toggle.contains(event.target);
+
+    if (!clickedInsideMenu) {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Buka menu");
+    }
+  });
+}
+
+
+/* =========================================
+   TOMBOL WHATSAPP
+========================================= */
+
+function initWhatsAppButtons() {
+  document.querySelectorAll("[data-whatsapp-general]").forEach(button => {
+    button.addEventListener("click", event => {
+      event.preventDefault();
+      orderGeneral();
+    });
+
+    button.setAttribute(
+      "href",
+      `https://wa.me/${CONFIG.whatsapp}`
+    );
+  });
+}
+
+
+/* =========================================
+   TAHUN OTOMATIS FOOTER
+========================================= */
+
+function updateCopyright() {
+  const yearElement = document.getElementById("current-year");
+
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+}
+
+
+/* =========================================
+   INISIALISASI WEBSITE
+========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-
   renderProducts();
-
-  renderTestimonials();
-
   renderGallery();
-
+  renderTestimonials();
   initMobileMenu();
-
-  initLightbox();
-
+  initWhatsAppButtons();
   updateCopyright();
-
 });
