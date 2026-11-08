@@ -1357,3 +1357,228 @@ button {
     padding: 0;
   }
 }
+
+
+/* =================================
+   PENYESUAIAN UKURAN FONT
+   LEBIH BESAR DAN MUDAH DIBACA
+================================= */
+
+/* Teks utama */
+body {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Navigasi */
+.nav-links a {
+  font-size: 13px;
+}
+
+/* Header dan logo */
+.brand strong {
+  font-size: 17px;
+}
+
+.brand small {
+  font-size: 12px;
+}
+
+/* Label section */
+.hero-label,
+.section-label {
+  font-size: 12px;
+}
+
+/* Hero */
+.hero-content > p {
+  font-size: 17px;
+}
+
+.hero-location {
+  font-size: 14px;
+}
+
+/* Informasi singkat */
+.intro-grid strong {
+  font-size: 19px;
+}
+
+.intro-grid span {
+  font-size: 14px;
+}
+
+/* Judul dan deskripsi */
+.section-heading p,
+.about-content p {
+  font-size: 16px;
+}
+
+/* Produk */
+.fertilizer-category {
+  font-size: 12px;
+}
+
+.fertilizer-content > p {
+  font-size: 15px;
+}
+
+.fertilizer-detail span {
+  font-size: 13px;
+}
+
+.fertilizer-detail strong {
+  font-size: 14px;
+}
+
+.fertilizer-content .fertilizer-note {
+  font-size: 14px;
+}
+
+.fertilizer-price {
+  font-size: 19px;
+}
+
+/* Keunggulan */
+.advantage-card h3 {
+  font-size: 19px;
+}
+
+.advantage-card p {
+  font-size: 14px;
+}
+
+/* Aktivitas produksi */
+.activity-content {
+  padding: 16px;
+}
+
+.activity-category {
+  font-size: 11px;
+}
+
+.activity-content h3 {
+  font-size: 17px;
+}
+
+.activity-content p {
+  font-size: 14px;
+}
+
+.activity-link {
+  font-size: 14px;
+}
+
+/* Pemesanan */
+.order-step h3 {
+  font-size: 19px;
+}
+
+.order-step p {
+  font-size: 14px;
+}
+
+/* Tombol */
+.btn {
+  font-size: 14px;
+}
+
+/* Lokasi */
+.location-info > p {
+  font-size: 16px;
+}
+
+.location-coordinate span {
+  font-size: 12px;
+}
+
+.location-coordinate strong {
+  font-size: 15px;
+}
+
+/* Footer */
+.footer-brand > p,
+.footer-links a,
+.footer-contact p {
+  font-size: 14px;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+}
+
+/* =================================
+   PENYESUAIAN MOBILE
+================================= */
+
+@media (max-width: 760px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+  }
+
+  .hero-content > p {
+    font-size: 16px;
+  }
+
+  .intro-grid strong {
+    font-size: 18px;
+  }
+
+  .intro-grid span {
+    font-size: 14px;
+  }
+
+  .section-heading p,
+  .about-content p {
+    font-size: 15px;
+  }
+
+  .fertilizer-content > p {
+    font-size: 15px;
+  }
+
+  .fertilizer-detail span {
+    font-size: 12px;
+  }
+
+  .fertilizer-detail strong {
+    font-size: 14px;
+  }
+
+  .advantage-card h3 {
+    font-size: 17px;
+  }
+
+  .advantage-card p {
+    font-size: 14px;
+  }
+
+  .activity-content h3 {
+    font-size: 15px;
+  }
+
+  .activity-content p {
+    font-size: 13px;
+  }
+
+  .activity-link {
+    font-size: 13px;
+  }
+
+  .order-step h3 {
+    font-size: 17px;
+  }
+
+  .order-step p {
+    font-size: 14px;
+  }
+
+  .location-info > p {
+    font-size: 15px;
+  }
+}
