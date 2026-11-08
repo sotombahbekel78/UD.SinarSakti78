@@ -1,11 +1,18 @@
-/* KONFIGURASI */
+/* =================================
+   KONFIGURASI WEBSITE
+================================= */
+
 const CONFIG = {
   namaUsaha: "UD. SINAR SAKTI 78",
-  whatsapp: "6285292661522"
+  whatsapp: "6285292661522",
+  akunTikTok: "https://www.tiktok.com/@ud.sinarsakti78"
 };
 
 
-/* DATA PRODUK */
+/* =================================
+   DATA PRODUK
+================================= */
+
 const products = [
   {
     id: 1,
@@ -42,7 +49,42 @@ const products = [
 ];
 
 
-/* WHATSAPP */
+/* =================================
+   DATA AKTIVITAS TIKTOK
+
+   Tambahkan link video TikTok di sini.
+
+   Contoh:
+   {
+     judul: "Proses Produksi Pupuk",
+     kategori: "Produksi",
+     deskripsi: "Dokumentasi kegiatan produksi.",
+     link: "https://www.tiktok.com/@ud.sinarsakti78/video/ID_VIDEO"
+   }
+
+   Gunakan link video lengkap yang mengandung /video/ID.
+================================= */
+
+const activities = [
+  {
+    judul: "Aktivitas Peternakan",
+    kategori: "Peternakan",
+    deskripsi: "Kegiatan peternakan kambing etawa.",
+    link: "https://vt.tiktok.com/ZSpSaeuoT/"
+  },
+  {
+    judul: "Proses Pengolahan Pupuk",
+    kategori: "Produksi",
+    deskripsi: "Proses pengolahan pupuk organik.",
+    link: "https://vt.tiktok.com/ZSpS5bHVx/"
+  }
+];
+
+
+/* =================================
+   WHATSAPP
+================================= */
+
 function sendWhatsApp(message) {
   const url =
     `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
@@ -80,7 +122,10 @@ Terima kasih.`;
 }
 
 
-/* TAMPILKAN PRODUK */
+/* =================================
+   TAMPILKAN PRODUK
+================================= */
+
 function renderProducts() {
   const container = document.getElementById("product-list");
 
@@ -166,7 +211,125 @@ function renderProducts() {
 }
 
 
-/* MENU MOBILE */
+/* =================================
+   VALIDASI LINK TIKTOK
+================================= */
+
+function getTikTokVideoId(url) {
+  try {
+    const parsedUrl = new URL(url);
+    const match = parsedUrl.pathname.match(/\/video\/(\d+)/);
+
+    return match ? match[1] : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+
+/* =================================
+   TAMPILKAN AKTIVITAS TIKTOK
+================================= */
+
+function renderActivities() {
+  const container = document.getElementById("activity-list");
+
+  if (!container) return;
+
+  if (!activities.length) {
+    container.innerHTML = `
+      <div class="activity-empty">
+        <strong>Dokumentasi Aktivitas Produksi</strong>
+        Video aktivitas produksi akan ditampilkan di sini.
+        Silakan tambahkan link video TikTok pada bagian
+        <strong>activities</strong> di file script.js.
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = activities.map(item => {
+
+    const videoId = getTikTokVideoId(item.link);
+
+    let videoElement = "";
+
+    if (videoId) {
+      videoElement = `
+        <div class="activity-video">
+          <iframe
+            src="https://www.tiktok.com/player/v1/${videoId}?autoplay=0"
+            title="${item.judul}"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen>
+          </iframe>
+        </div>
+      `;
+    } else {
+      videoElement = `
+        <a
+          class="activity-link-preview"
+          href="${item.link}"
+          target="_blank"
+          rel="noopener noreferrer">
+          <span class="tiktok-play">▶</span>
+          <strong>Tonton video di TikTok</strong>
+          <small>Klik untuk membuka video</small>
+        </a>
+      `;
+    }
+
+    return `
+      <article class="activity-card">
+
+        ${videoElement}
+
+        <div class="activity-content">
+
+          <span class="activity-category">
+            ${item.kategori}
+          </span>
+
+          <h3>${item.judul}</h3>
+
+          <p>${item.deskripsi || ""}</p>
+
+          <a
+            href="${item.link}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="activity-link">
+            Tonton di TikTok ↗
+          </a>
+
+        </div>
+
+      </article>
+    `;
+
+  }).join("");
+}
+
+
+/* =================================
+   TOMBOL WHATSAPP
+================================= */
+
+function initWhatsAppButtons() {
+  document.querySelectorAll("[data-whatsapp-general]").forEach(button => {
+    button.addEventListener("click", event => {
+      event.preventDefault();
+      orderGeneral();
+    });
+  });
+}
+
+
+/* =================================
+   MENU MOBILE
+================================= */
+
 function initMobileMenu() {
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav-links");
@@ -205,18 +368,10 @@ function initMobileMenu() {
 }
 
 
-/* TOMBOL WHATSAPP */
-function initWhatsAppButtons() {
-  document.querySelectorAll("[data-whatsapp-general]").forEach(button => {
-    button.addEventListener("click", event => {
-      event.preventDefault();
-      orderGeneral();
-    });
-  });
-}
+/* =================================
+   TAHUN FOOTER
+================================= */
 
-
-/* TAHUN FOOTER */
 function updateCopyright() {
   const yearElement = document.getElementById("current-year");
 
@@ -226,9 +381,13 @@ function updateCopyright() {
 }
 
 
-/* INISIALISASI */
+/* =================================
+   INISIALISASI WEBSITE
+================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
   renderProducts();
+  renderActivities();
   initMobileMenu();
   initWhatsAppButtons();
   updateCopyright();
